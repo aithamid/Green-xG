@@ -1,0 +1,39 @@
+dependencies:
+- name: mysql
+  repository: file://../../oai-5g-core/mysql
+  version: 9.0.1
+- name: oai-nrf
+  repository: file://../../oai-5g-core/oai-nrf
+  version: v2.1.0
+- name: oai-udr
+  repository: file://../../oai-5g-core/oai-udr
+  version: v2.1.0
+- name: oai-udm
+  repository: file://../../oai-5g-core/oai-udm
+  version: v2.1.0
+- name: oai-ausf
+  repository: file://../../oai-5g-core/oai-ausf
+  version: v2.1.0
+- name: oai-amf
+  repository: file://../../oai-5g-core/oai-amf
+  version: v2.1.0
+- name: oai-smf
+  repository: file://../../oai-5g-core/oai-smf
+  version: v2.1.0
+- name: oai-upf
+  repository: file://../../oai-5g-core/oai-upf
+  version: v2.1.0
+- name: oai-cu
+  repository: file://../../oai-5g-ran/oai-cu
+  version: 2.1.0
+- name: oai-du
+  repository: file://../../oai-5g-ran/oai-du
+  version: 2.1.0
+- name: oai-nr-ue
+  repository: file://../../oai-5g-ran/oai-nr-ue
+  version: 2.1.0
+- name: oai-traffic-server
+  repository: file://../../oai-5g-core/oai-traffic-server
+  version: v1
+digest: sha256:66d1f184e47c5c5928e9e55f126140a502fb2748df0969045758b014d46d2ce1
+generated: "2025-05-20T17:34:46.568359455+02:00"
