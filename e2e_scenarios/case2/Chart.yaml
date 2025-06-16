@@ -74,3 +74,6 @@ dependencies:
   name: oai-traffic-server
   repository: "file://../../oai-5g-core/oai-traffic-server"
   version: v1
+- name: oai-flexric
+  repository: "file://../../oai-5g-ric"
+  version: 0.1.0

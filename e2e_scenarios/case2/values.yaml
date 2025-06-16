@@ -400,3 +400,20 @@ oai-nr-ue:
         cpu: 2000m
         memory: 4Gi
   nodeSelector:
+
+oai-flexric:
+  namespace: oai-tutorial
+  service:
+    name: oai-flexric
+    port: 36421
+    type: NodePort
+    node_port: 31234 #must be within range 30000 - 32767
+  image:
+    repository: docker.io/oaisoftwarealliance/oai-flexric
+    tag: develop
+  configmap_data:
+    flexric_conf: |-
+      [NEAR-RIC]
+      NEAR_RIC_IP = 0.0.0.0
+      [XAPP]
+      DB_DIR = /tmp/

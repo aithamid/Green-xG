@@ -35,5 +35,8 @@ dependencies:
 - name: oai-traffic-server
   repository: file://../../oai-5g-core/oai-traffic-server
   version: v1
-digest: sha256:66d1f184e47c5c5928e9e55f126140a502fb2748df0969045758b014d46d2ce1
-generated: "2025-05-20T17:34:46.568359455+02:00"
+- name: oai-flexric
+  repository: file://../../oai-5g-ric
+  version: 0.1.0
+digest: sha256:bf710c27c91e3a0b9feac02864bcf1dc458e8204f4c1f112dc2037e4c6ef502d
+generated: "2025-06-16T11:51:52.879700416+02:00"
