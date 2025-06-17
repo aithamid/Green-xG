@@ -4,21 +4,23 @@ metadata:
   name: {{ .Values.service.name }}
   namespace: {{ .Values.namespace }}
   labels:
-    app: {{ .Values.service.name }}
+    {{- include "oai-flexric.labels" . | nindent 4 }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ .Values.service.name }}
+      {{- include "oai-du.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        app: {{ .Values.service.name }}
+        {{- include "oai-flexric.selectorLabels" . | nindent 8 }}
+      annotations:
+        k8s.v1.cni.cncf.io/networks: oai-flexric
     spec:
       volumes:
         - name: config-volume
           configMap:
-            name: config-{{ .Values.service.name }}
+            name: {{ .Values.service.name }}
       restartPolicy: Always
       dnsPolicy: ClusterFirst
       securityContext: { }

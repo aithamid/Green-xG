@@ -417,3 +417,10 @@ oai-flexric:
       NEAR_RIC_IP = 0.0.0.0
       [XAPP]
       DB_DIR = /tmp/
+  multus:
+    interface:
+      create: true
+      ipAdd: "172.21.6.210"
+      netmask: "22"
+      gateway: "172.21.7.254"
+      hostInterface: "eth0"

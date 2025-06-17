@@ -1,7 +1,7 @@
 # Default values for .helm.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
-namespace: oai-ric
+namespace: oai-tutorial
 service:
   name: oai-flexric
   port: 36421
@@ -16,3 +16,11 @@ configmap_data:
     NEAR_RIC_IP = 0.0.0.0
     [XAPP]
     DB_DIR = /tmp/
+
+multus:
+  interface:
+    create: true
+    ipAdd: "172.21.6.210"
+    netmask: "22"
+    gateway: "172.21.7.254"
+    hostInterface: "eth0"

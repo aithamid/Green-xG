@@ -4,13 +4,14 @@ metadata:
   name: {{ .Values.service.name }}
   namespace: {{ .Values.namespace }}
   labels:
-    app: {{ .Values.service.name }}
+    {{- include "oai-flexric.labels" . | nindent 4 }}
 spec:
-  type: {{ .Values.service.type }}
+  type: ClusterIP
+  clusterIP: None
   ports:
     - port: {{ .Values.service.port }}
       protocol: SCTP
       name: sctp
-      nodePort: {{ .Values.service.node_port }}
+      #nodePort: {{ .Values.service.node_port }}
   selector:
-      app: {{ .Values.service.name }}
+      {{- include "oai-flexric.selectorLabels" . | nindent 4 }}
