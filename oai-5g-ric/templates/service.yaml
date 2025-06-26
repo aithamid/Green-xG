@@ -6,12 +6,11 @@ metadata:
   labels:
     {{- include "oai-flexric.labels" . | nindent 4 }}
 spec:
-  type: ClusterIP
-  clusterIP: None
+  type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.port }}
       protocol: SCTP
       name: sctp
-      #nodePort: {{ .Values.service.node_port }}
+      nodePort: {{ .Values.service.node_port }}
   selector:
       {{- include "oai-flexric.selectorLabels" . | nindent 4 }}

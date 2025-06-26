@@ -84,11 +84,13 @@ spec:
         {{- if .Values.start.gnbdu}}
         command: [ "/bin/bash", "-c" ]
         args:
-         -  CU_IP_ADDRESS=$(getent hosts $CU_HOST | awk '{print $1}')
+         -  FLEXRIC_IP_ADDRESS=$(getent hosts oai-flexric | awk '{ print $1 }')
+            CU_IP_ADDRESS=$(getent hosts $CU_HOST | awk '{print $1}')
             CU_IP_ADDRESS=$(if [[ $CU_IP_ADDRESS ]]; then echo $CU_IP_ADDRESS; else echo $CU_HOST;fi)
             F1_DU_IP_ADDRESS=$(ip -f inet addr show $F1_IF_NAME | grep -o "inet [0-9]*\.[0-9]*\.[0-9]*\.[0-9]*" | grep -o "[0-9]*\.[0-9]*\.[0-9]*\.[0-9]*");
             sed -e s/@F1_DU_IP_ADDRESS@/$F1_DU_IP_ADDRESS/g
                 -e s/@CU_IP_ADDRESS@/$CU_IP_ADDRESS/g
+                -e s/@FLEXRIC_IP_ADDRESS@/$FLEXRIC_IP_ADDRESS/g
                 /opt/oai-gnb/etc/du.conf | tee /tmp/du.conf;
           {{- if eq .Values.config.usrp "b2xx"}}
             /opt/oai-gnb/bin/uhd_images_downloader.py -t b2xx;
@@ -126,6 +128,7 @@ spec:
             cpu: {{ .Values.resources.limits.tcpdump.cpu | quote }}
         {{- end}}
         securityContext:
+           privileged: true
            capabilities:
               add:
                - NET_ADMIN
